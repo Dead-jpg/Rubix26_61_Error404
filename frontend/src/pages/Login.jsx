@@ -24,7 +24,6 @@ export default function Login() {
       window.location.href = "/plants";
     }
   };
-
   return (
     <form onSubmit={submit} className="max-w-sm mx-auto p-6">
       <h2 className="text-2xl mb-4">Login</h2>
