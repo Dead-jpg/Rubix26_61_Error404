@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SplineBackground from "../components/SplineBackground";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -25,32 +26,38 @@ export default function Login() {
     }
   };
   return (
-    <form onSubmit={submit} className="max-w-sm mx-auto p-6">
-      <h2 className="text-2xl mb-4">Login</h2>
+    <div className="h-screen w-full overflow-hidden text-white font-sans">
+      <SplineBackground />
+      <form onSubmit={submit} className="max-w-sm mx-auto p-6">
+        <h2 className="text-2xl mb-4">Login</h2>
 
-      {error && <p className="text-red-500">{error}</p>}
+        {error && <p className="text-red-500">{error}</p>}
 
-      <input
-        placeholder="Email"
-        className="border p-2 w-full mb-2"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        className="border p-2 w-full mb-4"
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <input
+          placeholder="Email"
+          className="w-full p-3 mb-4 rounded-lg bg-white/60 text-black outline-none"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          className="w-full p-3 mb-6 rounded-lg bg-white/60 text-black outline-none"
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-      <button className="bg-green-600 text-white px-4 py-2 w-full">
-        Login
-      </button>
-      <p className="mt-4 text-center">
-        Don’t have an account?{" "}
-        <a href="/register" className="text-green-600">
-          Sign Up
-        </a>
-      </p>
-    </form>
+        <button className="bg-green-600 text-white px-4 py-2 w-full">
+          Login
+        </button>
+        <p className="mt-6 text-teal-100">
+          Don’t have an account?{" "}
+          <a
+            href="/register"
+            className="underline text-green-300 hover:text-green-400"
+          >
+            Sign Up
+          </a>
+        </p>
+      </form>
+    </div>
   );
 }
