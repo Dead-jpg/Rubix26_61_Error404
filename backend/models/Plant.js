@@ -22,6 +22,10 @@ const plantSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    sketchfabUrl: {
+      type: String,
+      required: false,
+    },
   },
   { timestamps: true },
 );

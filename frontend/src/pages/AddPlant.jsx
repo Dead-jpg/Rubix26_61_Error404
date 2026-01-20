@@ -7,6 +7,7 @@ export default function AddPlant() {
     ayushSystem: "",
     uses: "",
     image: "",
+    sketchfabUrl: "",
   });
 
   const submit = async (e) => {
@@ -14,13 +15,18 @@ export default function AddPlant() {
 
     const token = localStorage.getItem("token");
 
+    const payload = { ...form };
+    if (!payload.sketchfabUrl) {
+      delete payload.sketchfabUrl; // ✅ IMPORTANT
+    }
+
     const res = await fetch("http://localhost:5000/api/plants", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(form),
+      body: JSON.stringify(payload),
     });
 
     const data = await res.json();
@@ -62,7 +68,12 @@ export default function AddPlant() {
         className="border p-2 w-full mb-4"
         onChange={(e) => setForm({ ...form, image: e.target.value })}
       />
-
+      <input
+        name="sketchfabUrl"
+        placeholder="Sketchfab Embed URL (optional)"
+        className="input"
+        onChange={(e) => setForm({ ...form, sketchfabUrl: e.target.value })}
+      />
       <button className="bg-green-600 text-white px-4 py-2 w-full">
         Add Plant
       </button>
