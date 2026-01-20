@@ -29,7 +29,7 @@ export default function AddPlant() {
       alert(data.message);
     } else {
       alert("Plant added successfully 🌱");
-      window.location.href = "/";
+      window.location.href = "/dashboard";
     }
   };
 
