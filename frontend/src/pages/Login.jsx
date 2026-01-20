@@ -22,37 +22,53 @@ export default function Login() {
       setError(data.message);
     } else {
       localStorage.setItem("token", data.token);
-      window.location.href = "/plants";
+      window.location.href = "/dashboard";
     }
   };
   return (
-    <div className="h-screen w-full overflow-hidden text-white font-sans">
+    <div className="h-screen w-full flex items-center justify-center relative overflow-hidden font-sans">
+      {/* Background */}
       <SplineBackground />
-      <form onSubmit={submit} className="max-w-sm mx-auto p-6">
-        <h2 className="text-2xl mb-4">Login</h2>
 
-        {error && <p className="text-red-500">{error}</p>}
+      {/* Login Card */}
+      <form
+        onSubmit={submit}
+        className="relative z-10 w-[340px] p-6 rounded-2xl 
+           bg-white/20 backdrop-blur-xl 
+           border border-white/30 
+           shadow-2xl 
+           text-white"
+      >
+        <h2 className="text-2xl font-semibold text-center mb-4 text-green-700">
+          Login
+        </h2>
+
+        {error && (
+          <p className="text-red-500 text-sm text-center mb-3">{error}</p>
+        )}
 
         <input
           placeholder="Email"
-          className="w-full p-3 mb-4 rounded-lg bg-white/60 text-black outline-none"
+          className="w-full p-2.5 mb-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-green-500 outline-none"
           onChange={(e) => setEmail(e.target.value)}
         />
+
         <input
           type="password"
           placeholder="Password"
-          className="w-full p-3 mb-6 rounded-lg bg-white/60 text-black outline-none"
+          className="w-full p-2.5 mb-4 rounded-md border border-gray-300 focus:ring-2 focus:ring-green-500 outline-none"
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className="bg-green-600 text-white px-4 py-2 w-full">
+        <button className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md transition">
           Login
         </button>
-        <p className="mt-6 text-teal-100">
+
+        <p className="mt-4 text-sm text-center text-gray-700">
           Don’t have an account?{" "}
           <a
             href="/register"
-            className="underline text-green-300 hover:text-green-400"
+            className="text-green-600 font-medium hover:underline"
           >
             Sign Up
           </a>

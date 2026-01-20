@@ -40,3 +40,38 @@
 .read-the-docs {
   color: #888;
 }
+/* LEAF SHAPE */
+.leaf {
+  position: absolute;
+  top: -10%;
+  background: linear-gradient(135deg, #22c55e, #16a34a, #15803d);
+  border-radius: 100% 0 100% 0;
+  opacity: 0.8;
+  transform: rotate(0deg);
+  animation-name: fall, sway;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* FALLING */
+@keyframes fall {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
+/* SIDE SWAY + ROTATION */
+@keyframes sway {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(40px) rotate(180deg);
+  }
+  100% {
+    transform: translateX(-40px) rotate(360deg);
+  }
+}
