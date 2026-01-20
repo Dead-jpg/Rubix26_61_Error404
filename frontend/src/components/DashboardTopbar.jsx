@@ -37,10 +37,6 @@ export default function DashboardTopbar({ onMenuClick }) {
       {/* Right */}
       <div className="flex items-center gap-4 relative" ref={dropdownRef}>
         {/* Search */}
-        <input
-          placeholder="Search plants, diseases..."
-          className="hidden md:block px-4 py-2 rounded-full text-sm outline-none"
-        />
 
         {/* Profile */}
         <button

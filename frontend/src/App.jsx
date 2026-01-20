@@ -5,11 +5,13 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Contact from "./pages/Contact";
 import Plants from "./pages/Plants";
+import TourJourney from "./pages/TourJourney";
 
 import DashboardLayout from "./pages/DashboardLayout";
 import DashboardHome from "./pages/DashboardHome";
 import Explorer from "./pages/Explorer";
-import Tours from "./pages/GuidedTours";
+import GuidedTours from "./pages/GuidedTours";
+import TourView from "./pages/TourView";
 import Bookmarks from "./pages/Bookmarks";
 import AllPlants from "./pages/AllPlants";
 import AdvancedSearch from "./pages/AdvancedSearch";
@@ -20,14 +22,14 @@ import Plant3DView from "./pages/Plant3DView";
 function App() {
   return (
     <Routes>
-      {/* Public routes */}
+      {/* Public */}
       <Route path="/" element={<Home />} />
       <Route path="/plants" element={<Plants />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/contact" element={<Contact />} />
 
-      {/* Dashboard routes */}
+      {/* Dashboard */}
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route index element={<DashboardHome />} />
 
@@ -37,7 +39,12 @@ function App() {
 
         <Route path="add-plant" element={<AddPlant />} />
         <Route path="explorer" element={<Explorer />} />
-        <Route path="tours" element={<Tours />} />
+
+        {/* ✅ Guided Tours */}
+        <Route path="tours" element={<GuidedTours />} />
+        <Route path="tours/:tourId" element={<TourView />} />
+        <Route path="tours/:tourId/journey" element={<TourJourney />} />
+
         <Route path="bookmarks" element={<Bookmarks />} />
         <Route path="search" element={<AdvancedSearch />} />
       </Route>
