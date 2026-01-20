@@ -14,11 +14,12 @@ export default function Plants() {
   return (
     <>
       <Link
-        class="relative bg-gray-800/50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
+        className="relative bg-gray-800/50 text-white px-4 py-2 inline-block m-6 rounded"
         to="/"
       >
-        Home
+        ← Home
       </Link>
+
       <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6">
         {plants.map((plant) => (
           <PlantCard key={plant._id} plant={plant} />

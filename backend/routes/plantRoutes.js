@@ -39,4 +39,22 @@ router.post("/", authMiddleware, async (req, res) => {
   console.log(req.body);
 });
 
+
+router.get("/plant-of-the-day", async (req, res) => {
+  try {
+    const count = await Plant.countDocuments();
+
+    if (count === 0) {
+      return res.status(404).json(null);
+    }
+
+    const random = Math.floor(Math.random() * count);
+    const plant = await Plant.findOne().skip(random);
+
+    res.json(plant);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching plant of the day" });
+  }
+});
+
 export default router;

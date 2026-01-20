@@ -20,9 +20,11 @@ export default function DashboardTopbar({ onMenuClick }) {
   }, []);
 
   const logout = () => {
-    localStorage.clear();
-    navigate("/");
-  };
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  navigate("/login");
+};
+
 
   return (
     <header className="sticky top-0 z-[100] bg-green-600 px-6 py-3 flex items-center justify-between shadow-md relative">

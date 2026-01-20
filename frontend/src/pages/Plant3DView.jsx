@@ -32,7 +32,6 @@ export default function Plant3DView() {
 
   return (
     <div className="w-full h-[calc(100vh-64px)] bg-black relative">
-      {/* Back Button */}
       <button
         onClick={() => navigate(-1)}
         className="absolute top-4 left-4 z-10 bg-white text-black px-4 py-2 rounded shadow"
@@ -40,10 +39,9 @@ export default function Plant3DView() {
         ← Back
       </button>
 
-      {/* Sketchfab Viewer */}
       <iframe
         src={plant.sketchfabUrl}
-        title={plant.name}
+        title={plant.commonName}
         className="w-full h-full"
         allow="autoplay; fullscreen; xr-spatial-tracking"
         allowFullScreen
