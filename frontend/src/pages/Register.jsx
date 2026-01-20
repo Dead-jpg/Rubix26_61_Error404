@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SplineBackground from "../components/SplineBackground";
 
 export default function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -24,38 +25,52 @@ export default function Register() {
   };
 
   return (
-    <form onSubmit={submit} className="max-w-sm mx-auto p-6">
-      <h2 className="text-2xl mb-4">Sign Up</h2>
+    <div className="h-screen w-full flex items-center justify-center relative overflow-hidden font-sans">
+      {/* Background */}
+      <SplineBackground />
 
-      {error && <p className="text-red-500">{error}</p>}
+      <form
+        onSubmit={submit}
+        className="relative z-10 w-[340px] p-6 rounded-2xl 
+           bg-white/20 backdrop-blur-xl 
+           border border-white/30 
+           shadow-2xl 
+           text-white"
+      >
+        <h2 className="text-2xl font-semibold text-center mb-4 text-green-700">
+          Sign Up
+        </h2>
 
-      <input
-        placeholder="Name"
-        className="border p-2 w-full mb-2"
-        onChange={(e) => setForm({ ...form, name: e.target.value })}
-      />
-      <input
-        placeholder="Email"
-        className="border p-2 w-full mb-2"
-        onChange={(e) => setForm({ ...form, email: e.target.value })}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        className="border p-2 w-full mb-4"
-        onChange={(e) => setForm({ ...form, password: e.target.value })}
-      />
+        {error && <p className="text-red-500">{error}</p>}
 
-      <button className="bg-green-600 text-white px-4 py-2 w-full">
-        Register
-      </button>
+        <input
+          placeholder="Name"
+          className="w-full p-2.5 mb-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-green-500 outline-none"
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+        />
+        <input
+          placeholder="Email"
+          className="w-full p-2.5 mb-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-green-500 outline-none"
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          className="w-full p-2.5 mb-4 rounded-md border border-gray-300 focus:ring-2 focus:ring-green-500 outline-none"
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
+        />
 
-      <p className="mt-4 text-center">
-        Already have an account?{" "}
-        <a href="/login" className="text-green-600">
-          Login
-        </a>
-      </p>
-    </form>
+        <button className="bg-green-600 text-white px-4 py-2 w-full">
+          Register
+        </button>
+
+        <p className="mt-4 text-center">
+          Already have an account?{" "}
+          <a href="/login" className="text-green-600">
+            Login
+          </a>
+        </p>
+      </form>
+    </div>
   );
 }
