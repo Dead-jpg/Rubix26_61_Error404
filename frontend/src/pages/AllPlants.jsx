@@ -34,22 +34,29 @@ export default function AllPlants() {
       .catch(() => setLoading(false));
   }, []);
 
-  if (loading) return <p className="p-6">Loading plants...</p>;
+  if (loading)
+    return (
+      <p className="p-6 text-white text-lg font-medium drop-shadow-md">
+        Loading plants...
+      </p>
+    );
 
   return (
-    <div className="p-6">
+    <div className="p-6 space-y-8 text-slate-900">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h1 className="text-2xl font-bold">All Medicinal Plants</h1>
-          <p className="text-gray-500">
+          <h1 className="text-2xl font-bold text-white drop-shadow-md">
+            All Medicinal Plants
+          </h1>
+          <p className="text-white drop-shadow-md">
             Explore AYUSH medicinal plant database
           </p>
         </div>
 
         <Link
           to="/dashboard/add-plant"
-          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+          className="bg-emerald-600/90 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition"
         >
           + Add Plant
         </Link>
@@ -60,33 +67,37 @@ export default function AllPlants() {
         {plants.map((plant) => (
           <div
             key={plant._id}
-            className="bg-white rounded-xl shadow hover:shadow-lg transition"
+            className="bg-white/80 backdrop-blur-2xl rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 border border-white/25 overflow-hidden flex flex-col"
           >
             <img
               src={plant.image}
               alt={plant.name}
-              className="h-48 w-full object-cover rounded-t-xl"
+              className="h-48 w-full object-cover"
             />
 
-            <div className="p-4">
-              <h2 className="text-lg font-semibold">{plant.name}</h2>
-              <p className="italic text-sm text-gray-500">
-                {plant.scientificName}
-              </p>
+            <div className="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h2 className="text-lg font-semibold text-slate-900">
+                  {plant.name}
+                </h2>
+                <p className="italic text-sm text-slate-700">
+                  {plant.scientificName}
+                </p>
 
-              <span className="inline-block mt-2 bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs">
-                {plant.ayushSystem}
-              </span>
+                <span className="inline-block mt-2 bg-emerald-100/90 text-emerald-900 px-3 py-1 rounded-full text-xs font-medium">
+                  {plant.ayushSystem}
+                </span>
 
-              <p className="text-sm text-gray-600 mt-3 line-clamp-3">
-                {plant.uses}
-              </p>
+                <p className="text-sm text-slate-800 mt-3 line-clamp-3">
+                  {plant.uses}
+                </p>
+              </div>
 
               {/* Bottom Row */}
               <div className="flex justify-between items-center mt-4">
                 <Link
                   to={`/dashboard/plants/${plant._id}`}
-                  className="text-green-600 font-medium hover:underline"
+                  className="text-emerald-700 font-medium hover:underline"
                 >
                   Learn more →
                 </Link>

@@ -8,11 +8,11 @@ export default function DashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-green-50">
-      {/* Animated garden / leaves / branches */}
+    <div className="relative min-h-screen overflow-hidden">
+      {/* 🌿 Animated garden / falling leaves / branches */}
       <DashboardBackground />
 
-      {/* Dark overlay when sidebar opens (better UX) */}
+      {/* Dark overlay when sidebar opens */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 bg-black/30 z-20 backdrop-blur-sm"

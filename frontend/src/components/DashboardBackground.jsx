@@ -1,38 +1,18 @@
+import FallingLeaves from "./FallingLeaves";
+
 export default function DashboardBackground() {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-gradient-to-br from-green-50 via-white to-emerald-50">
-      {/* Blob 1 */}
-      <div
-        className="
-        absolute top-[-10%] left-[-10%]
-        w-[400px] h-[400px]
-        bg-green-300/30
-        rounded-full blur-3xl
-        animate-floatSlow
-      "
-      />
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+      {/* 🌿 Solid Green Background at the very back */}
+      <div className="absolute inset-0 bg-gradient-to-br from-green-900 via-green-800 to-green-700" />
 
-      {/* Blob 2 */}
-      <div
-        className="
-        absolute top-[20%] right-[-10%]
-        w-[350px] h-[350px]
-        bg-emerald-300/30
-        rounded-full blur-3xl
-        animate-floatMedium
-      "
-      />
+      {/* 🌿 Falling Leaves Animation on top of the green background */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        <FallingLeaves />
+      </div>
 
-      {/* Blob 3 */}
-      <div
-        className="
-        absolute bottom-[-15%] left-[20%]
-        w-[500px] h-[500px]
-        bg-lime-300/30
-        rounded-full blur-3xl
-        animate-floatFast
-      "
-      />
+      {/* 🌿 Optional Soft Vignette for text readability (above leaves but behind content) */}
+      <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import "./fallingLeaves.css";
 export default function FallingLeaves() {
   useEffect(() => {
     const container = document.querySelector(".background-container");
-    const leafCount = 30;
+    const leafCount = 16;
 
     function createLeaf() {
       const leaf = document.createElement("div");
