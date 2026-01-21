@@ -1,12 +1,14 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import dotenv from "dotenv";
+
 
 import plantRoutes from "./routes/plantRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 
-dotenv.config();
+
 
 const app = express();
 
@@ -22,7 +24,8 @@ app.use("/api/auth", authRoutes);
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected Successfully ✅"))
-  .catch((err) => console.log("MongoDB Error ❌", err));
+  .catch((err) => console.error("MongoDB Error ❌", err));
+
 
 // Test route
 app.get("/", (req, res) => {
