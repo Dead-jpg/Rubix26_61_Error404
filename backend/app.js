@@ -20,6 +20,7 @@ app.use(express.json());
 app.use("/api/plants", plantRoutes);
 app.use("/api/auth", authRoutes);
 
+console.log("MONGO_URI =", process.env.MONGO_URI);
 // MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI)
