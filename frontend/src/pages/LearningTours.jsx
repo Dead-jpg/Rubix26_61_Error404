@@ -114,7 +114,9 @@ export default function LearningTours() {
 function TourCard({ title, description, points, link }) {
   return (
     <div className="bg-white/40 backdrop-blur-lg p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-[1.03] transition-transform transform space-y-4">
-      <h3 className="text-xl font-semibold text-green-900 drop-shadow-sm">{title}</h3>
+      <h3 className="text-xl font-semibold text-green-900 drop-shadow-sm">
+        {title}
+      </h3>
       <p className="text-gray-800">{description}</p>
 
       <ul className="list-disc pl-5 text-gray-700 text-sm space-y-1">
@@ -123,13 +125,12 @@ function TourCard({ title, description, points, link }) {
         ))}
       </ul>
 
-      <Link
+      {/* <Link
         to={link}
         className="mt-3 inline-block text-green-700 font-medium hover:underline"
       >
         Learn More →
-      </Link>
+      </Link> */}
     </div>
   );
 }
-
